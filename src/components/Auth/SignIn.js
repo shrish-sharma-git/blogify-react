@@ -11,18 +11,20 @@ const SignIn = (e) => {
     return (  
         <div className="signin-container">
             <form onSubmit={HandleSubmit} className="sign-in">
-                <p>Sign In</p>
+                <p className="form-title">Sign In</p>
                 <div className="input-field">
-                    <label htmlFor="email">Email</label>
-                    <input id="email" type="email" onChange={HandleChange}/>
+                    <label htmlFor="email"></label>
+                    <input id="email" type="email" onChange={HandleChange} placeholder="Email"/>
                 </div>
                 <div className="input-field">
-                    <label htmlFor="password">Password</label>
-                    <input id="password" type="password" onChange={HandleChange}/>
+                    <label htmlFor="password"></label>
+                    <input id="password" type="password" onChange={HandleChange} placeholder="Password"/>
                 </div>
-                <button className="submit-btn">
-                    Login
-                </button>
+                <div className="submit">
+                    <button className="submit-btn">
+                        Login
+                    </button>
+                </div>
             </form>
         </div>
     );
