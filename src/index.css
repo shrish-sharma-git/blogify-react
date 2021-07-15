@@ -84,10 +84,12 @@
 .b-title {
   font-size: 25px;
   font-weight: bold;
+  margin-bottom: 10px;
 }
 
 .b-postedby {
   font-style: italic;
+  margin-bottom: 5px;
 }
 
 .b-postedon {
@@ -110,4 +112,33 @@
 
 /* Home END*/
 
+/* Blog Details */
+.blog-content {
+  margin: 50px 100px;
+}
 
+.blog-title {
+  margin-bottom: 20px;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.b-content {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.user-data {
+  margin-top: 20px;
+}
+
+/* Blog Details END */
+
+/* Authentication */
+/* Sign IN */
+
+/* Sign IN End */
+/* Sign UP */
+
+/* Sign UP End */
+/* Authentication END */
