@@ -26,7 +26,7 @@ const SignUp = () => {
     }
 
     const HandleSubmit = (e) => {
-        e.preventDefault()
+        e.preventDefault();
         console.log(email, password, fname, lname);
     }
 
