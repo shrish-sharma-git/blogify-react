@@ -1,8 +1,13 @@
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Navbar from './components/Layout/Navbar';
+
 function App() {
   return (
-    <div className="App">
-      <h1>Blogify</h1>
-    </div>
+    <Router>
+      <div className="App">
+        <Navbar />
+      </div>
+    </Router>
   );
 }
 
