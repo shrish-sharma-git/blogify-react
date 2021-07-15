@@ -1,12 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const SignIn = (e) => {
-    const HandleChange = () => {
-        console.log(e);
+    // Defining UseState Hooks for Email and Password
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+
+    const emailHandleChange = (e) => {
+        setEmail(e.target.value);
+    }
+
+    const passwordHandleChange = (e) => {
+        setPassword(e.target.value);
     }
     
     const HandleSubmit = (e) => {
-        console.log(e);
+        e.preventDefault()
+        console.log(email, password);
     }
     return (  
         <div className="signin-container">
@@ -14,11 +23,11 @@ const SignIn = (e) => {
                 <p className="form-title">Sign In</p>
                 <div className="input-field">
                     <label htmlFor="email"></label>
-                    <input id="email" type="email" onChange={HandleChange} placeholder="Email"/>
+                    <input id="email" type="email" onChange={emailHandleChange} placeholder="Email"/>
                 </div>
                 <div className="input-field">
                     <label htmlFor="password"></label>
-                    <input id="password" type="password" onChange={HandleChange} placeholder="Password"/>
+                    <input id="password" type="password" onChange={passwordHandleChange} placeholder="Password"/>
                 </div>
                 <div className="submit">
                     <button className="submit-btn">
