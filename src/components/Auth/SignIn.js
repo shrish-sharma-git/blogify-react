@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const SignIn = (e) => {
+const SignIn = () => {
     // Defining UseState Hooks for Email and Password
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
