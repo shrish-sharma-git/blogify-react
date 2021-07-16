@@ -228,7 +228,7 @@
 }
 
 .create-blog input:focus {
-
+  border-color: #F73859;
 }
 
 .create-blog-title {
