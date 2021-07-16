@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
+import { createBlog } from '../../store/actions/projectActions';
+import { connect } from 'react-redux';
 
-const CreateBlog = () => {
+const CreateBlog = ({ createBlog }) => {
     // Defining Hooks
     const [title, setTitle] = useState("");
     const [content, setContent] = useState("");
@@ -16,7 +18,7 @@ const CreateBlog = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(title, content);
+        createBlog([title, content])
     }    
 
     return (  
@@ -41,4 +43,10 @@ const CreateBlog = () => {
     );
 }
  
-export default CreateBlog;
+const mapDispatchToProps = (dispatch) => {
+    return {
+        createBlog: (blog) => dispatch(createBlog(blog))
+    }
+}
+
+export default connect(null, mapDispatchToProps)(CreateBlog);
