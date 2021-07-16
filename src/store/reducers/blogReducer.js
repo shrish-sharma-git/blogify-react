@@ -10,8 +10,13 @@ const blogReducer = (state= initState, action) => {
     switch (action.type) {
         case 'CREATE_BLOG':
             console.log("Created Blog", action.blog);
+            return state;
+        case 'CREATE_BLOG_ERROR':
+            console.log("Blog Creation Error", action.err);
+            return state;
+        default: 
+            return state;    
     }
-    return state;
 }
 
 export default blogReducer

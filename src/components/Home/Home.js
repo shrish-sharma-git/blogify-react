@@ -1,6 +1,8 @@
 import React from 'react';
 import BlogList from '../Blogs/BlogList';
 import Notifications from './Notifications';
+import { firestoreConnect } from 'react-redux-firebase';
+import { compose } from 'redux';
 
 import { connect } from 'react-redux';
 
@@ -16,9 +18,14 @@ const Home = ({ blogs }) => {
 
 const mapStateToProps = (state) => {
     return {
-        blogs: state.blog.blogs
+        blogs: state.firestore.ordered.blogs
     }
 }
 
 
-export default connect(mapStateToProps)(Home);
+export default compose(
+    connect(mapStateToProps),
+    firestoreConnect([
+        {collection: 'blogs'}
+    ])
+)(Home);

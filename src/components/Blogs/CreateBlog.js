@@ -18,7 +18,7 @@ const CreateBlog = ({ createBlog }) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        createBlog([title, content])
+        createBlog({title: title, content: content})
     }    
 
     return (  
