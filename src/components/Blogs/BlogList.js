@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import BlogSummary from './BlogSummary';
 
 const BlogList = ({ blogs }) => {
@@ -6,7 +7,9 @@ const BlogList = ({ blogs }) => {
         <div className="blog-list">
             { blogs && blogs.map(blog => {
                 return (
-                    <BlogSummary blog={blog} key={blog.id} />
+                    <Link to={'blog/' + blog.id}>
+                        <BlogSummary blog={blog} key={blog.id}/>
+                    </Link>
                 )
             })}
         </div>
