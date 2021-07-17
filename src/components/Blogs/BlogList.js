@@ -7,8 +7,8 @@ const BlogList = ({ blogs }) => {
         <div className="blog-list">
             { blogs && blogs.map(blog => {
                 return (
-                    <Link to={'blog/' + blog.id}>
-                        <BlogSummary blog={blog} key={blog.id}/>
+                    <Link to={'blog/' + blog.id} key={blog.id}>
+                        <BlogSummary blog={blog}/>
                     </Link>
                 )
             })}

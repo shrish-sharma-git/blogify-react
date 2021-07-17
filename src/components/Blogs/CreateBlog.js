@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { createBlog } from '../../store/actions/projectActions';
+import { createBlog } from '../../store/actions/blogActions';
 import { connect } from 'react-redux';
 
 const CreateBlog = ({ createBlog }) => {

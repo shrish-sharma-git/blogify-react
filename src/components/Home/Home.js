@@ -7,7 +7,6 @@ import { compose } from 'redux';
 import { connect } from 'react-redux';
 
 const Home = ({ blogs }) => {
-    console.log(blogs);
     return ( 
         <div className="home-container">
                 <BlogList blogs={blogs}/>
