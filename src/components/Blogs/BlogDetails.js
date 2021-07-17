@@ -2,9 +2,11 @@ import React from 'react';
 import { compose } from 'redux';
 import { firestoreConnect } from 'react-redux-firebase';
 import { connect } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 
 const BlogDetails = (props) => {
-    const { blog } = props;
+    const { blog, auth } = props;
+    if(!auth.uid) return <Redirect to='/SignIn' />
     if(blog){
         return (  
             <div className="blog-content">
@@ -39,7 +41,8 @@ const mapStateToProps = (state, ownProps) => {
     const blogs = state.firestore.data.blogs;
     const blog = blogs ? blogs[id] : null;
     return {
-        blog: blog
+        blog: blog,
+        auth: state.firebase.auth
     }
 }
 

@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 import { signIn } from '../../store/actions/authActions';
 
-const SignIn = ({ signIn, authError }) => {
+const SignIn = ({ signIn, authError, auth }) => {
     // Defining UseState Hooks for Email and Password
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -19,6 +20,8 @@ const SignIn = ({ signIn, authError }) => {
         e.preventDefault()
         signIn({email, password});
     }   
+
+    if(auth.uid) return <Redirect to='/' />
     return (  
         <div className="signin-container">
             <form onSubmit={HandleSubmit} className="sign-in">
@@ -46,7 +49,8 @@ const SignIn = ({ signIn, authError }) => {
 
 const mapStateToProps = (state) => {
     return{
-      authError: state.auth.authError
+      authError: state.auth.authError,
+      auth: state.firebase.auth
     }
 }
   

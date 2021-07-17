@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
+import { connect } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 
-const SignUp = () => {
+const SignUp = ({ auth }) => {
     // Defining UseState Hooks for Email and Password
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -30,6 +32,7 @@ const SignUp = () => {
         console.log(email, password, fname, lname);
     }
 
+    if(auth.uid) return <Redirect to='/' />
     return (
         <div className="signin-container">
             <form onSubmit={HandleSubmit} className="sign-in">
@@ -59,5 +62,11 @@ const SignUp = () => {
         </div>
     );
 }
+
+const mapStateToProps = (state) => {
+    return {
+        auth: state.firebase.auth
+    }
+}
  
-export default SignUp;
+export default connect(mapStateToProps)(SignUp);

@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { createBlog } from '../../store/actions/blogActions';
 import { connect } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 
-const CreateBlog = ({ createBlog }) => {
+const CreateBlog = ({ createBlog, auth }) => {
     // Defining Hooks
     const [title, setTitle] = useState("");
     const [content, setContent] = useState("");
@@ -20,6 +21,8 @@ const CreateBlog = ({ createBlog }) => {
         e.preventDefault();
         createBlog({title: title, content: content})
     }    
+
+    if(!auth.uid) return <Redirect to='/SignIn' />
 
     return (  
         <div className="createblog-container">
@@ -42,6 +45,12 @@ const CreateBlog = ({ createBlog }) => {
         </div>
     );
 }
+
+const mapStateToProps = (state) => {
+    return {
+        auth: state.firebase.auth
+    }
+}
  
 const mapDispatchToProps = (dispatch) => {
     return {
@@ -49,4 +58,4 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 
-export default connect(null, mapDispatchToProps)(CreateBlog);
+export default connect(mapStateToProps, mapDispatchToProps)(CreateBlog);
