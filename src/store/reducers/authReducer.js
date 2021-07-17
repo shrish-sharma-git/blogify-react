@@ -15,8 +15,12 @@ const initState = {
         return {
           authError: null
         }
+      
+      case 'SIGNOUT_SUCCESS':
+        console.log('Sign Out Success')
+        return state;  
       default:
-        return state
+        return state;
     }
   };
   

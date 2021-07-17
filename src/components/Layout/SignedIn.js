@@ -1,14 +1,22 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { signOut } from '../../store/actions/authActions';
+import { connect } from 'react-redux';
 
-const SignedIn = () => {
+const SignedIn = ({ signOut }) => {
     return (
         <div className="signedin-links">
             <Link to="/CreateBlog">Create Blog</Link>
-            <Link to="/">Log Out</Link>
+            <a onClick={signOut}>Log Out</a>
             <span className="user-logo"><Link to="/">SS</Link></span>
         </div>
     );
 }
  
-export default SignedIn;
+const mapDispatchToProps = (dispatch) => {
+    return {
+        signOut: () => dispatch(signOut())
+    }
+}
+
+export default connect(null, mapDispatchToProps)(SignedIn);
