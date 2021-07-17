@@ -271,3 +271,17 @@
 }
 
 /* Create Blog END */
+
+/* Preloader */
+.preloader {
+  background-color: #283149;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.preloader img {
+  display: flex;
+}
+/* Preloader END */

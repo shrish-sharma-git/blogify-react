@@ -11,7 +11,7 @@ import { getFirestore, reduxFirestore } from 'redux-firestore';
 import firebaseConfig from './config/firebaseConfig';
 import { createFirestoreInstance } from 'redux-firestore';
 import firebase from 'firebase';
-
+import preloader from './preloader.gif';
 
 // Creating REDUX Store
 // We pass a Root Reducer in this function which associates the Reducer with the store 
@@ -33,13 +33,12 @@ const rrfProps = {
 function AuthIsReady({ children, state }){
   // const auth = state.firebase.auth;
   const auth = useSelector(state=>state.firebase.auth);
-
   console.log(auth)
   if(isLoaded(auth)){
     return children;
   } 
   else{
-    return <div className="loading"> <img src="https://media.giphy.com/media/3o7bu3XilJ5BOiSGic/giphy.gif" alt="Loading... " /></div>
+    return <div className="preloader"><img className="img-load" src={preloader} alt="Loading..." /></div>
   }
 }
 
