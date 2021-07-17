@@ -11,4 +11,4 @@ const rootReducer = combineReducers({
     firebase: firebaseReducer
 })
 
-export default rootReducer
+export default rootReducer;
