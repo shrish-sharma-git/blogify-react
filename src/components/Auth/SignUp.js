@@ -1,15 +1,16 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
+import { signIn, signUp } from '../../store/actions/authActions'; 
 
-const SignUp = ({ auth }) => {
+const SignUp = ({ auth, signUp, authError }) => {
     // Defining UseState Hooks for Email and Password
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
     // Hooks for First and Last Name
-    const [fname, setFname] = useState("");
-    const [lname, setLname] = useState("");
+    const [firstName, setfirstName] = useState("");
+    const [lastName, setlastName] = useState("");
 
     const emailHandleChange = (e) => {
         setEmail(e.target.value);
@@ -20,16 +21,16 @@ const SignUp = ({ auth }) => {
     }
     
     const fnameHandleChange = (e) => {
-        setFname(e.target.value);
+        setfirstName(e.target.value);
     }
 
     const lnameHandleChange = (e) => {
-        setLname(e.target.value);
+        setlastName(e.target.value);
     }
 
     const HandleSubmit = (e) => {
         e.preventDefault();
-        console.log(email, password, fname, lname);
+        signUp({email, password, firstName, lastName})        
     }
 
     if(auth.uid) return <Redirect to='/' />
@@ -58,6 +59,9 @@ const SignUp = ({ auth }) => {
                         Sign Up
                     </button>
                 </div>
+                <div className="error-msg">
+                    { authError ? <p>{ authError }</p> : null }
+                </div>
             </form>
         </div>
     );
@@ -65,8 +69,15 @@ const SignUp = ({ auth }) => {
 
 const mapStateToProps = (state) => {
     return {
-        auth: state.firebase.auth
+        auth: state.firebase.auth,
+        authError: state.auth.authError
+    }       
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        signUp: (newUser) => dispatch(signUp(newUser)) 
     }
 }
  
-export default connect(mapStateToProps)(SignUp);
+export default connect(mapStateToProps, mapDispatchToProps)(SignUp);
