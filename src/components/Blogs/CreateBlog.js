@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import { createBlog } from '../../store/actions/blogActions';
 import { connect } from 'react-redux';
-import { Redirect } from 'react-router-dom';
+import { Redirect, useHistory } from 'react-router-dom';
 
 const CreateBlog = ({ createBlog, auth }) => {
     // Defining Hooks
     const [title, setTitle] = useState("");
     const [content, setContent] = useState("");
+
+    let history = useHistory();
 
     //Handler Functions
     const handleBlogTitleChange = (e) => {
@@ -20,8 +22,8 @@ const CreateBlog = ({ createBlog, auth }) => {
     const handleSubmit = (e) => {
         e.preventDefault();
         createBlog({title: title, content: content})
+        history.push('/');
     }    
-
     if(!auth.uid) return <Redirect to='/SignIn' />
 
     return (  

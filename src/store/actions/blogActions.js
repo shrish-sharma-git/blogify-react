@@ -2,11 +2,14 @@ export const createBlog = (blog) => {
     return (dispatch, getState, {getFirebase, getFirestore}) => {
         // We make Async Requests Here as Dispatch is paused and will resume after our Async Requests
         const firestore = getFirestore();
+        const profile = getState().firebase.profile;
+        const authorId = getState().firebase.auth.uid;
+
         firestore.collection('blogs').add({
             ...blog,
-            authorFirstName: "Slim",
-            authorLastName: "Shady",
-            authorId: 12345,
+            authorFirstName: profile.firstName,
+            authorLastName: profile.lastName,
+            authorId: authorId,
             createdAt: new Date()
         }).then(() => {
             dispatch({
