@@ -108,7 +108,7 @@
 }
 
 /* Notifications */
-.notifications {
+/* .notifications {
   background-color: #404B69;
   color: #DBEDF3;
   text-align: center;
@@ -119,28 +119,42 @@
 .notifications p {
   margin-top: 10px;
   font-size: 20px;
-}
+} */
 
 /* Home END*/
 
 /* Blog Details */
 .blog-content {
   margin: 50px 100px;
+  height: 500px;
+  padding: 50px;
+  background-color: #404B69;
+  color: #DBEDF3;
+  border-radius: 20px;
+
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);  
+}
+
+hr {
+  border: 0;
+  height: 1px;
+  background-image: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0));
 }
 
 .blog-title {
-  margin-bottom: 20px;
+  margin-bottom: 50px;
   font-size: 25px;
   font-weight: bold;
 }
 
 .b-content {
   font-size: 18px;
-  margin-bottom: 20px;
+  margin-bottom: 150px;
+  text-align: center;
 }
 
 .user-data {
-  margin-top: 20px;
+  margin-top: 50px;
 }
 
 /* Blog Details END */
