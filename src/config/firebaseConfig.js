@@ -11,7 +11,7 @@ var firebaseConfig = {
     storageBucket: "blogify-cce9b.appspot.com",
     messagingSenderId: "820815428487",
     appId: "1:820815428487:web:285584fe51c96ededc7122",
-    measurementId: "G-GF28RYL3J6"
+    measurementId: "G-GF28RYL3J6",
 };
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);

@@ -3,12 +3,16 @@ import { Link } from 'react-router-dom';
 import { signOut } from '../../store/actions/authActions';
 import { connect } from 'react-redux';
 
-const SignedIn = ({ signOut }) => {
+const SignedIn = ({ signOut, profile }) => {
     return (
         <div className="signedin-links">
             <Link to="/CreateBlog">Create Blog</Link>
             <a onClick={signOut}>Log Out</a>
-            <span className="user-logo"><Link to="/">SS</Link></span>
+            <span className="user-logo">
+                <Link to="/">
+                    {profile.initials}
+                </Link>
+            </span>
         </div>
     );
 }

@@ -23,11 +23,17 @@ const store = createStore(rootReducer,
   )
 ); 
 
+const rrfConfig={
+  userProfile:'users',
+  useFirestoreForProfile:true,
+  attachAuthIsReady:true
+}
+
 const rrfProps = {
+  dispatch:store.dispatch,
+  config:rrfConfig,
+  createFirestoreInstance,
   firebase,
-  config: firebaseConfig,
-  dispatch: store.dispatch,
-  createFirestoreInstance
 }
 
 function AuthIsReady({ children, state }){
