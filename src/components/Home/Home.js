@@ -13,7 +13,6 @@ const Home = ({ blogs, auth }) => {
     return ( 
         <div className="home-container">
                 <BlogList blogs={blogs}/>
-                <Notifications />
         </div>
     );
 }

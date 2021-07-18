@@ -64,7 +64,7 @@
 /* Home */
 .home-container {
   display: grid;
-  grid-template-columns: 1fr 30%;
+  grid-template-columns: 1fr;
   margin: 20px;
   gap: 20px;
 }
