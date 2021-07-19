@@ -23,9 +23,9 @@ const BlogDetails = (props) => {
                         {blog.title}
                     </p>
                     {auth.uid == blog.authorId && <button onClick={handleDelete} className="delete-btn">X</button>}
-                    <p className="b-content">
+                    <div className="b-content">
                         {blog.content}
-                    </p>
+                    </div>
                 </div>
                 <hr />
                 <div className="user-data">

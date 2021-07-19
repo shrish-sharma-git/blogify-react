@@ -36,7 +36,7 @@ const CreateBlog = ({ createBlog, auth }) => {
                 </div>
                 <div className="input-field">
                     <label htmlFor="blog-content"></label>
-                    <input id="blog-content" type="text" autoComplete="off" onChange={handleBlogContentChange} placeholder="Enter Content Here"/>
+                    <textarea id="blog-content" type="text" autoComplete="off" onChange={handleBlogContentChange} placeholder="Enter Content Here"/>
                 </div>
                 <div className="submit-blog">
                     <button className="create-btn">
