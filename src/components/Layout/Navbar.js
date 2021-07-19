@@ -6,7 +6,6 @@ import { connect } from 'react-redux';
  
 
 const Navbar = ({ auth, profile }) => {
-    console.log(profile)
     const links = auth.uid ? <SignedIn profile={profile}/> : <SignedOut />;
     return ( 
         <div className="navbar">

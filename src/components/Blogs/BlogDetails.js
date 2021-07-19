@@ -22,7 +22,7 @@ const BlogDetails = (props) => {
                     <p className="blog-title">
                         {blog.title}
                     </p>
-                    <button onClick={handleDelete} className="delete-btn">X</button>
+                    {auth.uid == blog.authorId && <button onClick={handleDelete} className="delete-btn">X</button>}
                     <p className="b-content">
                         {blog.content}
                     </p>

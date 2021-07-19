@@ -39,7 +39,6 @@ const rrfProps = {
 function AuthIsReady({ children, state }){
   // const auth = state.firebase.auth;
   const auth = useSelector(state=>state.firebase.auth);
-  console.log(auth)
   if(isLoaded(auth)){
     return children;
   } 
