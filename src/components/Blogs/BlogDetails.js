@@ -2,12 +2,19 @@ import React from 'react';
 import { compose } from 'redux';
 import { firestoreConnect } from 'react-redux-firebase';
 import { connect } from 'react-redux';
-import { Redirect } from 'react-router-dom';
+import { Redirect, useHistory } from 'react-router-dom';
 import moment from 'moment';
+import { deleteBlog } from '../../store/actions/blogActions';
 
 const BlogDetails = (props) => {
-    const { blog, auth } = props;
+    const { blog, auth, dispatchDeleteBlog } = props;
     if(!auth.uid) return <Redirect to='/SignIn' />
+
+    const handleDelete = (e) => {
+        dispatchDeleteBlog(e, props.id);
+        props.history.push('/');
+    }
+
     if(blog){
         return (  
             <div className="blog-content">
@@ -15,6 +22,7 @@ const BlogDetails = (props) => {
                     <p className="blog-title">
                         {blog.title}
                     </p>
+                    <button onClick={handleDelete} className="delete-btn">X</button>
                     <p className="b-content">
                         {blog.content}
                     </p>
@@ -33,8 +41,7 @@ const BlogDetails = (props) => {
                 <p>Loading Content...</p>
             </div>
         )
-    }
-    
+    } 
 }
 
 const mapStateToProps = (state, ownProps) => {
@@ -43,12 +50,22 @@ const mapStateToProps = (state, ownProps) => {
     const blog = blogs ? blogs[id] : null;
     return {
         blog: blog,
-        auth: state.firebase.auth
+        auth: state.firebase.auth,
+        id: id
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        dispatchDeleteBlog: (e, id) => {
+            e.preventDefault()
+            dispatch(deleteBlog(id))
+        }
     }
 }
 
 export default compose(
-    connect(mapStateToProps),
+    connect(mapStateToProps, mapDispatchToProps),
     firestoreConnect([
         { collection: 'blogs' }
     ])

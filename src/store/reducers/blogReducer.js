@@ -14,6 +14,12 @@ const blogReducer = (state= initState, action) => {
         case 'CREATE_BLOG_ERROR':
             console.log("Blog Creation Error", action.err);
             return state;
+        case 'BLOG_DELETE_SUCCESS':
+            console.log('Deleted Blog', action.blog);  
+            return state;
+        case 'BLOG_DELETE_ERROR':
+            console.log('Blog Deletion Error', action.err);      
+            return state;   
         default: 
             return state;    
     }
