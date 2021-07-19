@@ -364,6 +364,13 @@ hr {
   .b-content {
     width: 100%;
   }
+
+  .delete-btn {
+    top: 90px;
+    right: 25px;
+    padding: 7px;
+    border-radius: 7px;
+  }
 }
 
 /* MOBILE RESPONSIVENESS END */
